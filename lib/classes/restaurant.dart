@@ -12,17 +12,20 @@ import 'package:submission_flutter_fundamental/classes/food.dart';
 
 String restaurantsToJson(Restaurants data) => json.encode(data.toJson());*/
 
-class Restaurants {}
+class Restaurants {
+  final List<Restaurant> listRestaurant;
+  Restaurants(this.listRestaurant);
+}
 
 class Restaurant {
   Restaurant({
-    this.id,
-    this.name,
-    this.description,
-    this.pictureId,
-    this.city,
-    this.rating,
-    this.menus,
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.pictureId,
+    required this.city,
+    required this.rating,
+    required this.menus,
   });
 
   String id;
@@ -54,8 +57,17 @@ class Restaurant {
       };*/
 }
 
+List<Restaurant> parseRestaurants(String? json) {
+  if (json == null) {
+    return [];
+  }
+
+  final List parsed = jsonDecode(json);
+  return parsed.map((json) => Restaurant.fromJson(json)).toList();
+}
+
 class Menus {
-  Menus({this.foods, this.drinks});
+  Menus({required this.foods, required this.drinks});
 
   List<Food> foods;
   List<Drink> drinks;

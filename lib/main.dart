@@ -8,21 +8,20 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({required Key key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Restaurant App Subs 1',
+      title: 'Restaurant App Submission 1',
       theme: ThemeData(
         primaryColor: RestaurantAppColors.PRIMARY_COLOR,
       ),
-      debugShowCheckedModeBanner: false,
       initialRoute: restaurantListRoute,
       routes: {
-        restaurantListRoute: (context) => listRestaurant(),
+        restaurantListRoute: (context) => const ListRestaurant(),
       },
-    );
+    );c
   }
 }

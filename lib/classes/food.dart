@@ -2,7 +2,7 @@ import 'dart:convert';
 
 class Food {
   Food({
-    this.name,
+    required this.name,
   });
 
   String name;
